@@ -1,7 +1,23 @@
-@use "../base/variables";
+@use "../base/variables" as *;
 
-.card {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 1rem;
+.button {
+  background-color: $green-600;
+  border: 0;
+  color: #fff;
+  padding: $space $space-xl;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  border-radius: $radius;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $grey-900;
+  }
+
+  &:focus {
+    outline-offset: 2px;
+    outline: 2px solid $green-600;
+  }
 }

@@ -1,9 +1,17 @@
-@use "../base/variables";
+@use "../base/variables" as *;
 
-.headline {
-  color: var(--grey-900);
-  font-size:2rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -1px;
+.card {
+  background-color: #fff;
+  padding: $space-md;
+  border-radius: $radius-lg;
+  display: grid;
+  gap: $space-lg;
+  max-width: 46rem;
+  margin: auto;
+}
+
+@media screen and (min-width: $viewportTablet) {
+  .card {
+    padding: $space-xl;
+  }
 }

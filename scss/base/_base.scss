@@ -1,26 +1,19 @@
+@use "variables" as *;
+
 @font-face {
-  font-family: 'Work Sans';
+  font-family: 'Karla';
   font-style: normal;
   font-display: swap;
-  src: url('../assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+  src: url('../../assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Work Sans';
+  font-family: 'Karla';
   font-style: italic;
   font-display: swap;
-  src: url('../assets/fonts/Karla-Italic-VariableFont_wght.ttf') format('truetype');
+  src: url('../../assets/fonts/Karla-Italic-VariableFont_wght.ttf') format('truetype');
 }
 
-:root {
-  --grey-900: #2A4144;
-  --grey-500: #86A2A5;
-  --green-600: #0C7D69;
-  --green-200: #E0F1E8;
-  --red: #D73C3C;
-}
-
-*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -30,31 +23,36 @@
   padding: 0;
   margin: 0;
   font: inherit;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Karla", sans-serif;
   min-height: 100vh;
-  background-color: var(--green-200);
+  background-color: $green-200;
 }
 
 main {
   padding: 2rem 1rem;
 }
 
-.card {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 1rem;
+.sr-only {
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
-.headline {
-  color: var(--grey-900);
-  font-size:2rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -1px;
+.required {
+  margin-left: $space-xs;
+  color: $green-600;
 }
 
-.form__group {
+@media screen and (min-width: $viewportTablet) {
+  main {
+    padding: $space-2xl $space-xl;
+  }
 }

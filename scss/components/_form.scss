@@ -1,7 +1,206 @@
-@use "../base/variables";
+@use "../base/variables" as *;
 
-.card {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 1rem;
+.form {
+  &__control {
+    &:not(fieldset) {
+      display: grid;
+      row-gap: $space-xs;
+    }
+
+    &.form__input--error {
+      .form__input {
+        border-color: $red;
+
+        &:focus {
+          outline-color: $red;
+        }
+      }
+
+      .form__error {
+        display: flex;
+      }
+    }
+  }
+
+  &__label {
+    line-height: 1.5;
+    cursor: pointer;
+    position: relative;
+
+    &--radio {
+      position: relative;
+
+      .form__label-text {
+        background-color: #fff;
+        border-radius: $space-xs;
+        padding: $space-xs $space-md $space-xs 3.75rem;
+        border: 1px solid $grey-500;
+        font-size: 1.125rem;
+        line-height: 1.5;
+        height: 3.1875rem;
+        color: $grey-900;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $green-200;
+        }
+      }
+    }
+
+    &--checkbox {
+      position: relative;
+
+      .form__label-text {
+        display: flex;
+        align-items: center;
+        padding: $space $space-md $space calc(2.5rem + 3px);
+        width: 100%;
+      }
+    }
+  }
+
+  &__input {
+    &--text {
+      width: 100%;
+      border-radius: $radius;
+      border: 1px solid $grey-500;
+      padding: $space-sm $space-md;
+      line-height: 1.5;
+      font-size: 1.125rem;
+      color: $grey-900;
+      height: 3.1875rem;
+
+      &:focus {
+        outline: 2px solid $green-600;
+      }
+    }
+
+    &--textarea {
+      width: 100%;
+      resize: vertical;
+      border-radius: $radius;
+      border: 1px solid $grey-500;
+      padding: $space-sm $space-md;
+      line-height: 1.5;
+      font-size: 1.125rem;
+      color: $grey-900;
+      min-height: 6.5rem;
+      height: 15rem;
+      max-height: 15rem;
+
+      &:focus {
+        outline: 2px solid $green-600;
+      }
+    }
+
+    &--radio {
+      appearance: none;
+      position: absolute;
+      left: 1.5rem;
+      top: 50%;
+      width: 1.25rem;
+      height: 1.25rem;
+      transform: translateY(-50%);
+
+      &::before {
+        content: "";
+        border-radius: 50%;
+        border: 1px solid $grey-500;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      &:focus {
+        outline: 0;
+
+        & + .form__label-text {
+          outline: 2px solid $green-600;
+        }
+      }
+
+      &:checked {
+        &::before {
+          border-color: transparent;
+          background-image: url("/assets/images/icon-radio-selected.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        & + .form__label-text {
+          background-color: $green-200;
+          border-color: $green-600;
+        }
+      }
+    }
+
+    &--checkbox {
+      appearance: none;
+      position: absolute;
+      left: 3px;
+      top: 50%;
+      width: 1.25rem;
+      height: 1.25rem;
+      transform: translateY(-50%);
+
+      &::before {
+        content: "";
+        border-radius: 0.25rem;
+        border: 1px solid $grey-500;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      &:focus {
+        outline: 0;
+
+        & + .form__label-text {
+          outline: 2px solid $green-600;
+          border-radius: $radius;
+        }
+      }
+
+      &:checked {
+        &::before {
+          background-image: url("/assets/images/icon-checkbox-check.svg");
+          border-color: $green-600;
+        }
+      }
+    }
+  }
+
+  &__error {
+    color: $red;
+    font-size: 1rem;
+    line-height: 1.5;
+    width: 100%;
+    display: none;
+    align-items: center;
+    column-gap: $space-xs;
+
+    &::before {
+      content: "!";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $red;
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: $viewportTablet) {
+  .form {
+    &__input {
+      &--textarea {
+        height: 6.5rem;
+      }
+    }
+  }
 }

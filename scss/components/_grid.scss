@@ -1,21 +1,26 @@
-@use "../base/variables";
+@use "../base/variables" as *;
 
-.form {
+.grid {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-md $space;
+  align-items: start;
 
-  &__control {
-    display: grid;
+  &__column {
+    grid-column: 1 / -1;
   }
 
-  &__label {
-
+  &--gap-md {
+    gap: $space-md;
   }
+}
 
-  &__input {
-
-  }
-
-  &--error {
-
+@media screen and (min-width: $viewportTablet) {
+  .grid {
+    &__column {
+      &--half {
+        grid-column: span 1;
+      }
+    }
   }
 }
