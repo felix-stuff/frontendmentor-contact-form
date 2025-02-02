@@ -1,0 +1,9 @@
+@use "../base/variables";
+
+.form {
+  display: grid;
+
+  &__group {
+    display: grid;
+  }
+}

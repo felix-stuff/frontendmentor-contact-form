@@ -1,0 +1,21 @@
+@use "../base/variables";
+
+.form {
+  display: grid;
+
+  &__control {
+    display: grid;
+  }
+
+  &__label {
+
+  }
+
+  &__input {
+
+  }
+
+  &--error {
+
+  }
+}

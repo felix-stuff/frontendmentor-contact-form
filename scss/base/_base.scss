@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-display: swap;
+  src: url('../assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-display: swap;
+  src: url('../assets/fonts/Karla-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+:root {
+  --grey-900: #2A4144;
+  --grey-500: #86A2A5;
+  --green-600: #0C7D69;
+  --green-200: #E0F1E8;
+  --red: #D73C3C;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font: inherit;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  min-height: 100vh;
+  background-color: var(--green-200);
+}
+
+main {
+  padding: 2rem 1rem;
+}
+
+.card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.headline {
+  color: var(--grey-900);
+  font-size:2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.form__group {
+}
